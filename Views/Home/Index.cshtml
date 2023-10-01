@@ -1,0 +1,54 @@
+﻿@model FormApp.Models.Info
+
+<form action="" , method="post">
+    <label>Name:</label>
+    <input type="text" name="name"><br>
+    <br>
+    <label>Id:</label>
+    <input type="text" name="id"><br>
+    <br>
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="Male">
+    <label>Male</label>
+    <input type="radio" name="gender" value="Female">
+    <label>Female</label><br>
+    <br>
+    <label>Profession:</label>
+    <select name="profession">
+        <option value="select">Select</option>
+        <option value="Teacher">Teacher</option>
+        <option value="Student">Student</option>
+    </select><br>
+    <br>
+    <label>Hobbies:</label><br>
+    <input type="checkbox" name="hobbies[]" value="Travelling">
+    <label>Travelling</label><br>
+    <input type="checkbox" name="hobbies[]" value="Drawing">
+    <label>Drawing</label><br>
+    <input type="checkbox" name="hobbies[]" value="Photography">
+    <label>Photography</label><br>
+    <br>
+    <input type="submit" value="Login">
+</form>
+
+@*access*@
+
+<div>
+    @if (Model != null)
+    {
+        <h5>Name: @Model.name</h5>
+        <h5>Id: @Model.id</h5>
+        <h5>Gender: @Model.gender</h5>
+        <h5>Profession: @Model.profession</h5>
+        <h5>Hobbies:</h5>
+        if (Model.hobbies != null)
+        {
+            <ul>
+                @foreach (var hoby in Model.hobbies)
+                {
+                    <li>@hoby</li>
+                }
+            </ul>
+        }
+    }
+</div>
